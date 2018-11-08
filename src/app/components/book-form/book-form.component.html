@@ -1,0 +1,53 @@
+<form [formGroup]="inputForm" (ngSubmit)="submit()">
+
+<mat-card>
+    <mat-card-header>
+
+      <mat-card-title>
+
+        <mat-form-field>
+            <input matInput placeholder="Title" formControlName="titleControl">
+        </mat-form-field>
+
+      </mat-card-title>
+
+      <mat-card-subtitle>
+
+        <mat-form-field>
+          <input matInput placeholder="Subtitle" formControlName="subtitleControl">
+        </mat-form-field>
+
+      </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <app-file-upload (loadFile)="onImageLoaded($event)"></app-file-upload>
+
+    <image-cropper
+      [imageBase64]="imageContent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 3"
+      [resizeToWidth]="600"
+      [onlyScaleDown]="true"
+      format="png"
+      [imageQuality]="90"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+
+    <mat-card-content>
+      <p>
+        <mat-form-field>
+            <textarea matInput placeholder="Description" formControlName="descriptionControl">
+            </textarea>
+        </mat-form-field>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button>Submit</button>
+      <button type="button" mat-button>Cancel</button>
+    </mat-card-actions>
+</mat-card>
+
+</form>
