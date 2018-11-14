@@ -27,4 +27,8 @@ export class BookAddComponent {
         });
     }
 
+    onCancelForm(event: Book) {
+      this.router.navigate(['book-list']);
+    }
+
 }

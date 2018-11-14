@@ -1,5 +1,7 @@
 <div class="outer-wrap">
     <div class="inner-wrap">
-        <app-book-form [book]="book" (submitForm)="onSubmitForm($event)" *ngIf="book"></app-book-form>
+        <br>
+        <app-book-form [book]="book" (submitForm)="onSubmitForm($event)" (cancelForm)="onCancelForm($event)" *ngIf="book"></app-book-form>
+        <br>
     </div>
 </div>

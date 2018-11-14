@@ -20,6 +20,9 @@ export class BookFormComponent implements OnInit {
     @Output()
     submitForm: EventEmitter<Book> = new EventEmitter();
 
+    @Output()
+    cancelForm: EventEmitter<Book> = new EventEmitter();
+
     inputForm: FormGroup;
     imageContent: string = imagePlaceholder;
     croppedImage: string = imagePlaceholder;
@@ -46,6 +49,16 @@ export class BookFormComponent implements OnInit {
       newBook.description = this.inputForm.controls.descriptionControl.value;
       newBook.image = this.croppedImage;
       this.submitForm.next(newBook);
+    }
+
+    cancel() {
+      const newBook: Book = new Book();
+      newBook.id = this.book.id;
+      newBook.title = this.inputForm.controls.titleControl.value;
+      newBook.subtitle = this.inputForm.controls.subtitleControl.value;
+      newBook.description = this.inputForm.controls.descriptionControl.value;
+      newBook.image = this.croppedImage;
+      this.cancelForm.next(newBook);
     }
 
     onImageLoaded(event) {

@@ -41,4 +41,8 @@ export class BookEditComponent implements OnInit {
       });
   }
 
+  onCancelForm(event: Book) {
+    this.router.navigate(['book-list']);
+  }
+
 }
