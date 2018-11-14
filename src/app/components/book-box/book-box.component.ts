@@ -13,9 +13,16 @@ export class BookBoxComponent {
   book: Book;
 
   @Output()
+  edit: EventEmitter<Book> = new EventEmitter();
+
+  @Output()
   delete: EventEmitter<Book> = new EventEmitter();
 
   constructor() {
+  }
+
+  onEditClicked(book: Book) {
+    this.edit.next(book);
   }
 
   onDeleteClicked(book: Book) {

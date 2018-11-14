@@ -13,10 +13,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
 
-import { AppComponent } from './app.component';
+import { DialogsModule } from 'src/app/dialogs/dialogs.module';
+
+import { AppComponent } from 'src/app/app.component';
 import { BookListComponent } from 'src/app/components/book-list/book-list.component';
 import { BookBoxComponent } from 'src/app/components/book-box/book-box.component';
 import { BookFormComponent } from 'src/app/components/book-form/book-form.component';
@@ -64,7 +67,9 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     ImageCropperModule,
+    DialogsModule,
     RouterModule.forRoot(appRoutes, { useHash: true}),
   ],
   providers: [BookService],

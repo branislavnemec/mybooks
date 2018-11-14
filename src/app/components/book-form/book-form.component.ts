@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { ImageCroppedEvent } from 'ngx-image-cropper/src/image-cropper.component';
 
 import { imagePlaceholder } from 'src/app/utils/image-utils';
@@ -13,6 +14,9 @@ import { Book } from 'src/app/structures/book';
 })
 export class BookFormComponent implements OnInit {
 
+    @Input()
+    book: Book = new Book();
+
     @Output()
     submitForm: EventEmitter<Book> = new EventEmitter();
 
@@ -23,15 +27,20 @@ export class BookFormComponent implements OnInit {
     constructor(private fb: FormBuilder) {}
 
     ngOnInit(): void {
+      console.log(this.book);
       this.inputForm = this.fb.group({
-        titleControl: ['', []],
-        subtitleControl: ['', []],
-        descriptionControl: ['', []],
+        titleControl: [this.book.title, []],
+        subtitleControl: [this.book.subtitle, []],
+        descriptionControl: [this.book.description, []],
       });
+      if (this.book.image && this.book.image.length > 0) {
+        this.imageContent = this.book.image;
+      }
     }
 
     submit() {
       const newBook: Book = new Book();
+      newBook.id = this.book.id;
       newBook.title = this.inputForm.controls.titleControl.value;
       newBook.subtitle = this.inputForm.controls.subtitleControl.value;
       newBook.description = this.inputForm.controls.descriptionControl.value;

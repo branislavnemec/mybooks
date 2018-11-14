@@ -1,0 +1,9 @@
+.inner-wrap {
+    margin: auto;
+    max-width: 800px;
+}
+  
+.outer-wrap {
+    max-height: 90%;
+    overflow: auto;
+}

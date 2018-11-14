@@ -14,7 +14,7 @@ export class BookService {
 
     constructor(private http: HttpClient) {
 
-        // this.endpoint = this.endpointLocal;
+        this.endpoint = this.endpointLocal;
 
     }
 
@@ -22,8 +22,16 @@ export class BookService {
         return this.http.get<Book[]>(this.endpoint + '/book/');
     }
 
+    findById(id: number): Observable<Book[]> {
+        return this.http.get<Book[]>(this.endpoint + '/book/' + id);
+    }
+
     add(book: Book): Observable<any> {
         return this.http.post<any>(this.endpoint + '/book/', book);
+    }
+
+    update(book: Book): Observable<any> {
+        return this.http.put<any>(this.endpoint + '/book/', book);
     }
 
     delete(id: number): Observable<any> {
