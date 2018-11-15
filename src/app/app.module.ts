@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { NgxLoadingModule } from 'ngx-loading';
 
 import { DialogsModule } from 'src/app/dialogs/dialogs.module';
 
@@ -28,6 +29,7 @@ import { BookAddComponent } from 'src/app/components/book-add/book-add.component
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
 
 import { BookService } from 'src/app/services/book.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 const appRoutes: Routes = [
   { path: 'book-list', component: BookListComponent },
@@ -69,10 +71,14 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSnackBarModule,
     ImageCropperModule,
+    NgxLoadingModule.forRoot({}),
     DialogsModule,
     RouterModule.forRoot(appRoutes, { useHash: true}),
   ],
-  providers: [BookService],
+  providers: [
+    BookService,
+    LoaderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
