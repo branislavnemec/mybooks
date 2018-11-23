@@ -20,6 +20,12 @@
                     <mat-icon class="example-icon">add</mat-icon>
                 </button>
                 <span class="example-spacer"></span>
+                <app-search-with-autocomplete
+                    [searchText]="searchText"
+                    [options]="options"
+                    (optionSelected)="optionSelected($event)"
+                    (valueChanged)="searchValueChanged($event)"
+                ></app-search-with-autocomplete>
                 <button mat-icon-button (click)="sidenav.toggle()">
                     <mat-icon class="example-icon">more_vert</mat-icon>
                 </button>

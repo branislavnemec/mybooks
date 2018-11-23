@@ -4,7 +4,7 @@
       <mat-card-title>{{book.title}}</mat-card-title>
       <mat-card-subtitle>{{book.subtitle}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="book.image"/>
+    <img (click)="onImageClicked(book)" mat-card-image [src]="book.image" *ngIf="book.image"/>
     <mat-card-content>
       <p>
         {{book.description}}

@@ -31,6 +31,11 @@ export class BookListComponent implements OnInit {
       });
   }
 
+  infoBook(event: Book) {
+    console.log(event.id);
+    this.router.navigate(['book-detail', event.id]);
+  }
+
   editBook(event: Book) {
     console.log(event.id);
     this.router.navigate(['book-edit', event.id]);

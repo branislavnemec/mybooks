@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-import { Observable } from 'rxjs';
 
 import { BookService } from 'src/app/services/book.service';
 
@@ -16,11 +15,12 @@ import { Book } from 'src/app/structures/book';
 })
 export class BookEditComponent implements OnInit {
 
-  book: Book;
+  book: Book = new Book();
 
   constructor(private bookService: BookService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
+              private location: Location,
               private matSnackBar: MatSnackBar) {}
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class BookEditComponent implements OnInit {
   }
 
   onCancelForm(event: Book) {
-    this.router.navigate(['book-list']);
+    this.location.back();
   }
 
 }

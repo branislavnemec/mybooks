@@ -1,7 +1,7 @@
 <div class="outer-wrap">
     <div class="inner-wrap">
         <mat-grid-list cols="1">
-            <app-book-box *ngFor="let book of books" [book]="book" (delete)="deleteBook($event)" (edit)="editBook($event)">
+            <app-book-box *ngFor="let book of books" [book]="book" (delete)="deleteBook($event)" (edit)="editBook($event)" (info)="infoBook($event)">
             </app-book-box>
         </mat-grid-list>
     </div>

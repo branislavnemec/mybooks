@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { LoaderService } from 'src/app/services/loader.service';
 
@@ -26,8 +26,22 @@ export class BookService {
     findById(id: number): Observable<Book[]> {
         setTimeout( () => { this.loaderService.loading = true; });
         return this.http.get<Book[]>(endpoint + '/book/' + id)
-            .pipe( tap( () => { this.loaderService.loading = false; },
-                        () => { this.loaderService.loading = false; } ) );
+            .pipe( tap( () => setTimeout( () => { this.loaderService.loading = false; }),
+                        () => setTimeout( () => { this.loaderService.loading = false; })
+                   )
+            );
+    }
+
+    findByPhrase(phrase: string, format: string): Observable<Book[]> {
+        setTimeout( () => { this.loaderService.loading = true; });
+        const params = new HttpParams()
+            .set('searchText', phrase)
+            .set('format', format);
+        return this.http.get<Book[]>(endpoint + '/book/search', { params })
+            .pipe( tap( () => setTimeout( () => { this.loaderService.loading = false; }),
+                        () => setTimeout( () => { this.loaderService.loading = false; })
+                   )
+            );
     }
 
     add(book: Book): Observable<any> {

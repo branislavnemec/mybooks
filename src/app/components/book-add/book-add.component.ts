@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -16,6 +17,7 @@ export class BookAddComponent {
 
     constructor(private bookService: BookService,
                 private router: Router,
+                private location: Location,
                 private matSnackBar: MatSnackBar) {}
 
     onSubmitForm(event: Book) {
@@ -28,7 +30,7 @@ export class BookAddComponent {
     }
 
     onCancelForm(event: Book) {
-      this.router.navigate(['book-list']);
+      this.location.back();
     }
 
 }

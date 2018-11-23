@@ -13,11 +13,10 @@ import { MatDialogRef } from '@angular/material/dialog';
  */
 export class ConfirmDialogComponent {
 
-    public dMessage: string;
-    public dCancelText: string;
-    public dConfirmText: string;
+    public dMessage = '';
+    public dCancelText = 'Cancel';
+    public dConfirmText = 'Confirm';
 
-    constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>) {
-    }
+    constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>) {}
 
 }

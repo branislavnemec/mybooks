@@ -10,13 +10,16 @@ import { Book } from 'src/app/structures/book';
 export class BookBoxComponent {
 
   @Input()
-  book: Book;
+  book: Book = new Book();
 
   @Output()
   edit: EventEmitter<Book> = new EventEmitter();
 
   @Output()
   delete: EventEmitter<Book> = new EventEmitter();
+
+  @Output()
+  info: EventEmitter<Book> = new EventEmitter();
 
   constructor() {
   }
@@ -27,6 +30,10 @@ export class BookBoxComponent {
 
   onDeleteClicked(book: Book) {
     this.delete.next(book);
+  }
+
+  onImageClicked(book: Book) {
+    this.info.next(book);
   }
 
 }

@@ -1,0 +1,8 @@
+<mat-form-field>
+    <input type="text" placeholder="search" aria-label="search" matInput [formControl]="searchControl" [matAutocomplete]="autocomplete">
+    <mat-autocomplete #autocomplete (optionSelected)="onOptionSelected($event)" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of options" [value]="option">
+            {{option.text}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>

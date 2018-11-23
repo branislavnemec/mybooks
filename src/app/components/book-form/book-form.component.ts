@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { ImageCroppedEvent } from 'ngx-image-cropper/src/image-cropper.component';
@@ -12,7 +12,7 @@ import { Book } from 'src/app/structures/book';
   templateUrl: './book-form.component.html',
   styleUrls: [ './book-form.component.css' ]
 })
-export class BookFormComponent implements OnInit {
+export class BookFormComponent implements OnInit, OnChanges {
 
     @Input()
     book: Book = new Book();
@@ -29,8 +29,17 @@ export class BookFormComponent implements OnInit {
 
     constructor(private fb: FormBuilder) {}
 
+    ngOnChanges(): void {
+      console.log(this.book);
+      this.initForm();
+    }
+
     ngOnInit(): void {
       console.log(this.book);
+      this.initForm();
+    }
+
+    initForm() {
       this.inputForm = this.fb.group({
         titleControl: [this.book.title, []],
         subtitleControl: [this.book.subtitle, []],
