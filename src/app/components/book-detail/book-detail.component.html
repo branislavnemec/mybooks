@@ -1,5 +1,10 @@
 <div class="outer-wrap">
     <div class="inner-wrap">
+            <button mat-icon-button (click)="goBack()">
+                    <mat-icon class="example-icon">arrow_back_ios</mat-icon>
+                    back
+            </button>
+
             <app-book-box [book]="book" (delete)="deleteBook($event)" (edit)="editBook($event)">
             </app-book-box>
     </div>

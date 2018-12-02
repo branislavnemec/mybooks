@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -21,6 +22,7 @@ export class BookDetailComponent implements OnInit {
                 private dialogsService: DialogsService,
                 private activatedRoute: ActivatedRoute,
                 private router: Router,
+                private location: Location,
                 private matSnackBar: MatSnackBar) {}
 
     ngOnInit() {
@@ -53,4 +55,7 @@ export class BookDetailComponent implements OnInit {
             });
     }
 
+    goBack() {
+        this.location.back();
+    }
 }

@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { NgxLoadingModule } from 'ngx-loading';
@@ -77,6 +78,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSnackBarModule,
     MatAutocompleteModule,
+    MatMenuModule,
     ImageCropperModule,
     NgxLoadingModule.forRoot({}),
     DialogsModule,

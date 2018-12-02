@@ -26,9 +26,15 @@
                     (optionSelected)="optionSelected($event)"
                     (valueChanged)="searchValueChanged($event)"
                 ></app-search-with-autocomplete>
-                <button mat-icon-button (click)="sidenav.toggle()">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
                     <mat-icon class="example-icon">more_vert</mat-icon>
                 </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>help</mat-icon>
+                      <span>About</span>
+                    </button>
+                </mat-menu>
             </mat-toolbar-row>
         </mat-toolbar>
 
