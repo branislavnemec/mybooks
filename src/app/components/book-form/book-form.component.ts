@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { ImageCroppedEvent } from 'ngx-image-cropper/src/image-cropper.component';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 import { imagePlaceholder } from 'src/app/utils/image-utils';
 
