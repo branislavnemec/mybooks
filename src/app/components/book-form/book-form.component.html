@@ -22,15 +22,19 @@
     </mat-card-header>
 
     <app-file-upload (loadFile)="onImageLoaded($event)"></app-file-upload>
+    
+    <button type="button" mat-button (click)="rotateLeft()">Rotate left</button>
+    <button type="button" mat-button (click)="rotateRight()">Rotate right</button>
 
     <image-cropper
       [imageBase64]="imageContent"
       [maintainAspectRatio]="true"
-      [aspectRatio]="4 / 3"
+      [aspectRatio]="3 / 4"
       [resizeToWidth]="600"
       [onlyScaleDown]="true"
       format="png"
       [imageQuality]="90"
+      [canvasRotation]="canvasRotation"
       (imageCropped)="imageCropped($event)"
       (imageLoaded)="imageLoaded()"
       (loadImageFailed)="loadImageFailed()"

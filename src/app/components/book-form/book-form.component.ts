@@ -26,6 +26,7 @@ export class BookFormComponent implements OnInit, OnChanges {
     inputForm: FormGroup;
     imageContent: string = imagePlaceholder;
     croppedImage: string = imagePlaceholder;
+    canvasRotation: number = 0;
 
     constructor(private fb: FormBuilder) {}
 
@@ -84,6 +85,14 @@ export class BookFormComponent implements OnInit, OnChanges {
 
     loadImageFailed() {
       // show message
+    }
+
+    rotateLeft() {
+      this.canvasRotation--;
+    }
+
+    rotateRight() {
+      this.canvasRotation++;
     }
 
 }
