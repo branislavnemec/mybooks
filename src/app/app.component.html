@@ -11,13 +11,13 @@
         <mat-toolbar color="primary">
             <mat-toolbar-row>
                 <button mat-icon-button (click)="sidenav.toggle()">
-                    <mat-icon class="example-icon">menu</mat-icon>
+                    <mat-icon>menu</mat-icon>
                 </button>
                 <button mat-icon-button (click)="goToBookList()">
-                    <mat-icon class="example-icon">home</mat-icon>
+                    <mat-icon>home</mat-icon>
                 </button>
                 <button mat-icon-button (click)="goToAddBook()">
-                    <mat-icon class="example-icon">add</mat-icon>
+                    <mat-icon>add</mat-icon>
                 </button>
                 <span class="example-spacer"></span>
                 <app-search-with-autocomplete
@@ -27,7 +27,7 @@
                     (valueChanged)="searchValueChanged($event)"
                 ></app-search-with-autocomplete>
                 <button mat-icon-button [matMenuTriggerFor]="menu">
-                    <mat-icon class="example-icon">more_vert</mat-icon>
+                    <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item>
