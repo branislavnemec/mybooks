@@ -2,4 +2,4 @@ export const environment = {
   production: true
 };
 
-export const endpoint = 'http://apps.branislavnemec.com/mybooksapi/rest';
+export const endpoint = 'https://apps.branislavnemec.com/mybooksapi/rest';
